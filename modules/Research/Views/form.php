@@ -73,7 +73,7 @@
             </div>
             <div class="col-lg-12 text-center">
                 <button type="submit" class="btn btn-primary">บันทึก</button>
-                <a href="<?= base_url('research') ?>" class="btn btn-warning">ย้อนกลับ</a>
+                <a href="<?= base_url('research') ?>" class="btn btn-secondary">ย้อนกลับ</a>
             </div>
 
         </div>

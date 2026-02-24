@@ -5,11 +5,7 @@
 <?php $this->section('content') ?>
 <div class="container">
 
-    <div class="text-end">
-        <a href="<?= base_url('research/create') ?>" class="btn btn-success">
-            เพิ่มงานวิจัย
-        </a>
-    </div>
+
     <div class="text-center">
         <h1> ค้นหา</h1>
     </div>
@@ -52,43 +48,50 @@
             </div>
         </form>
     </div>
+    <div class="text-end">
+        <a href="<?= base_url('research/create') ?>" class="btn btn-success">
+            เพิ่มงานวิจัย
+        </a>
+    </div>
     <?php
     if (!empty($research)) {
     ?>
-        <table class="table" id="myTable">
-            <thead>
-                <tr>
-                    <th class="text-center" style="width: 10%;">ลำดับ</th>
-                    <th class="text-center">ชื่องานวิจัย</th>
-                    <th class="text-center">ชื่อผู้วิจัย</th>
-                    <th class="text-center">ปีที่เผยแพร่</th>
-                    <th class="text-center">ประเภทงานวิจัย</th>
-                    <th class="text-center" style="width: 15%;">เครื่องมือ</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                if (!empty($research)) {
-                    foreach ($research as $row) {
-                ?>
-                        <tr>
-                            <td class="text-center"><?= $row['id'] ?></td>
-                            <td><?= $row['title'] ?></td>
-                            <td><?= $row['researcher_name'] ?></td>
-                            <td class="text-center"><?= $row['publication_year'] + 543 ?></td>
-                            <th class="text-center"><?= $row['research_type_name'] ?></th>
-                            <td class="text-center">
-                                <a href="<?= base_url('research/' . $row['id']) ?>" class="btn btn-info">ดู</a>
-                                <a href="<?= base_url('research/edit/' . $row['id']) ?>" class="btn btn-warning">แก้ไข</a>
-                                <button onclick="deleteResearch('<?= $row['id'] ?>')" class="btn btn-danger ">ลบ</button>
-                            </td>
-                        </tr>
-                <?php
+        <div class="table-responsive">
+            <table class="table" id="myTable">
+                <thead>
+                    <tr>
+                        <th class="text-center" style="width: 10%;">ลำดับ</th>
+                        <th class="text-center">ชื่องานวิจัย</th>
+                        <th class="text-center">ชื่อผู้วิจัย</th>
+                        <th class="text-center">ปีที่เผยแพร่</th>
+                        <th class="text-center">ประเภทงานวิจัย</th>
+                        <th class="text-center" style="width: 15%;">เครื่องมือ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    if (!empty($research)) {
+                        foreach ($research as $row) {
+                    ?>
+                            <tr>
+                                <td class="text-center"><?= $row['id'] ?></td>
+                                <td><?= $row['title'] ?></td>
+                                <td><?= $row['researcher_name'] ?></td>
+                                <td class="text-center"><?= $row['publication_year'] + 543 ?></td>
+                                <th class="text-center"><?= $row['research_type_name'] ?></th>
+                                <td class="text-center">
+                                    <a href="<?= base_url('research/' . $row['id']) ?>" class="btn btn-info w-100 mb-3">ดูงานวิจัย</a>
+                                    <a href="<?= base_url('research/edit/' . $row['id']) ?>" class="btn btn-warning w-100 mb-3">แก้ไข</a>
+                                    <button onclick="deleteResearch('<?= $row['id'] ?>')" class="btn btn-danger w-100 mb-3">ลบ</button>
+                                </td>
+                            </tr>
+                    <?php
+                        }
                     }
-                }
-                ?>
-            </tbody>
-        </table>
+                    ?>
+                </tbody>
+            </table>
+        </div>
     <?php
     } else {
     ?>
